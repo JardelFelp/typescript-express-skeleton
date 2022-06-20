@@ -1,0 +1,30 @@
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.tslint": false,
+    "source.fixAll.eslint": true,
+    "source.organizeImports": false
+  },
+  "typescript.validate.enable": false,
+  "javascript.validate.enable": false,
+  "prettier.requireConfig": true,
+  "prettier.useEditorConfig": false,
+  "eslint.options": {
+    "extensions": [
+      ".ts",
+      ".tsx",
+      ".js",
+      ".mdx"
+    ]
+  },
+  "eslint.validate": [
+    "typescript",
+    "typescriptreact",
+    "javascript",
+    "javascriptreact",
+    "markdown",
+    "mdx"
+  ],
+  "editor.tabSize": 2,
+  "files.eol": "\n"
+}

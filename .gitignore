@@ -1,0 +1,9 @@
+/node_modules
+.env
+/logs
+/dist
+combined.log
+error.log
+yarn-error.log
+
+.history

@@ -14,7 +14,7 @@ class Routes {
   public router: Router
   protected userController: UserController
 
-  constructor () {
+  constructor() {
     this.userController = new UserController()
 
     this.router = express.Router()
@@ -24,19 +24,19 @@ class Routes {
     this.initializeRoutes()
   }
 
-  private initializeDotnevSafe (): void {
+  private initializeDotnevSafe(): void {
     const nodeEnv = process.env.NODE_ENV || 'development'
     dotenv.config({
       path: path.resolve(__dirname, `../../env/.env.${nodeEnv}`)
     })
   }
 
-  private initializeSwagger (): void {
+  private initializeSwagger(): void {
     this.router.use('/swagger', swaggerUi.serve)
     this.router.get('/swagger', swaggerUi.setup((swaggerDocumentation)))
   }
 
-  private initializeRoutes (): void {
+  private initializeRoutes(): void {
     this.router.get('/user', this.userController.list)
     this.router.post('/user', validator.body(createUserSchema), this.userController.create)
   }

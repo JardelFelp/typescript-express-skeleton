@@ -13,6 +13,8 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
+  ignorePatterns: ['README.md'],
   rules: {
+    'space-before-function-paren': ['error', 'never']
   }
 }

@@ -13,7 +13,7 @@ class Logger {
   consoleLogger: winston.Logger
   fileLogger: winston.Logger
 
-  constructor (
+  constructor(
     logLevel = 'info',
     fileName = '',
     { logName, executedProcess }: LogProps
@@ -39,7 +39,7 @@ class Logger {
     })
   }
 
-  info (log: string) {
+  info(log: string) {
     this.logs.push(`${this.logName} - ${this.executedProcess} - ${log}`)
 
     return this.consoleLogger.info(
@@ -47,20 +47,20 @@ class Logger {
     )
   }
 
-  log (level: string, log: string) {
+  log(level: string, log: string) {
     this.info(log)
     return this.fileLogger.log(level, `[${moment().format()}] ${log}`)
   }
 
-  allLog () {
+  allLog() {
     return this.logs
   }
 
-  resetLog () {
+  resetLog() {
     this.logs = []
   }
 
-  addLog (logs: Array<string>) {
+  addLog(logs: Array<string>) {
     for (let i = 0; i < logs.length; i++) {
       this.logs.push(logs[i])
     }

@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 import { UserModel } from '../models/UserModel'
 
 class UserController {
-  public async create (request: Request, response: Response) {
+  public async create(request: Request, response: Response) {
     try {
       const { body: user } = request.body
 
@@ -14,7 +14,7 @@ class UserController {
     }
   }
 
-  public async list (request: Request, response: Response) {
+  public async list(request: Request, response: Response) {
     try {
       const userResponse = await UserModel.find()
 

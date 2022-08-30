@@ -1,6 +1,6 @@
 import path from 'path'
 import dotenv from 'dotenv'
-import Mongoose from 'mongoose'
+import Mongoose, { ConnectOptions } from 'mongoose'
 
 import RequireDir from 'require-dir'
 
@@ -13,7 +13,7 @@ const initializeDotEnv = () => {
   })
 }
 
-export const bootstrap = (callback = () => null) => {
+export const bootstrap = (callback: () => void) => {
   try {
     initializeDotEnv()
 
@@ -21,7 +21,7 @@ export const bootstrap = (callback = () => null) => {
       Mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
         useNewUrlParser: true,
         useUnifiedTopology: true
-      })
+      } as ConnectOptions)
 
       RequireDir('./models')
 

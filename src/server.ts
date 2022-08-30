@@ -13,5 +13,5 @@ bootstrap(() => {
     res.send('Welcome do Node Express Skeleton')
   })
 
-  app.listen(process.env.PORT || 3333, '0.0.0.0')
+  app.listen(process.env.PORT || 3333)
 })

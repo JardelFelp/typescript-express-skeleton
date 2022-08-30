@@ -1,11 +1,22 @@
 import winston from 'winston'
 import moment from 'moment'
 
+type LogProps = {
+  logName: string
+  executedProcess: string
+}
+
 class Logger {
+  logName: string
+  executedProcess: string
+  logs: Array<string>
+  consoleLogger: winston.Logger
+  fileLogger: winston.Logger
+
   constructor (
     logLevel = 'info',
     fileName = '',
-    { logName, executedProcess } = {}
+    { logName, executedProcess }: LogProps
   ) {
     this.logName = logName
     this.executedProcess = executedProcess
@@ -28,23 +39,15 @@ class Logger {
     })
   }
 
-  /**
-   * Faz um print no console
-   * @param {string} log mensagem
-   */
-  info (log) {
+  info (log: string) {
     this.logs.push(`${this.logName} - ${this.executedProcess} - ${log}`)
+
     return this.consoleLogger.info(
       `${this.logName} - ${this.executedProcess} - ${log}`
     )
   }
 
-  /**
-   * Faz um print no console e salva o log em arquivo
-   * @param {string} level nivel de importancia do log
-   * @param {string} log mensagem
-   */
-  log (level, log) {
+  log (level: string, log: string) {
     this.info(log)
     return this.fileLogger.log(level, `[${moment().format()}] ${log}`)
   }
@@ -57,7 +60,7 @@ class Logger {
     this.logs = []
   }
 
-  addLog (logs) {
+  addLog (logs: Array<string>) {
     for (let i = 0; i < logs.length; i++) {
       this.logs.push(logs[i])
     }

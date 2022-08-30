@@ -2,9 +2,10 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   env: {
     es2021: true,
-    node: true
+    node: true,
+    'jest/globals': true
   },
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'jest'],
   extends: [
     'plugin:@typescript-eslint/recommended',
     'standard'

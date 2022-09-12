@@ -8,7 +8,6 @@ class App {
   public express: express.Application
 
   public constructor() {
-    console.log('=-=-=-=-= Initializing application =-=-=-=-=')
     this.express = express()
     this.middlewares()
     this.routes()
@@ -24,4 +23,4 @@ class App {
   }
 }
 
-export default new App().express
+export default App

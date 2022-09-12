@@ -1,10 +1,10 @@
 import { bootstrap } from './bootstrap'
 
-import app from './app'
+import App from './app'
 import express from 'express'
 
 bootstrap(() => {
-  console.log('[info] Initializing express application')
+  const { express: app } = new App()
   app.use(express.json())
 
   app.use(express.urlencoded({ extended: true }))
